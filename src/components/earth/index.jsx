@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stars } from "@react-three/drei";
 
 import EarthCloudsMap from "../../assets/textures/8k_earth_clouds.jpg";
 import EarthDayMap from "../../assets/textures/8k_earth_daymap.jpg";
@@ -15,7 +15,15 @@ export default function Earth(props) {
   const [colorMap, nightMap, normalMap, specularMap, cloudsMap ] = useLoader(TextureLoader, [EarthDayMap, EarthNightMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap])
   return (
     <>
-      <ambientLight intensity={1}/>
+      <ambientLight intensity={1.0}/>
+      <Stars 
+        radius={300} 
+        depth={60} 
+        count={20000} 
+        factor={7} 
+        saturation={0} 
+        fade={true}
+      />
       <mesh>
         <sphereGeometry args={[1.005, 32, 32]}/>
         <meshPhongMaterial 
