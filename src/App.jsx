@@ -5,8 +5,8 @@ import Earth from "./components/earth"
 import './App.css'
 
 const CanvasContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 `;
 
 function App() {
