@@ -15,7 +15,9 @@ export default function Earth(props) {
   const [colorMap, nightMap, normalMap, specularMap, cloudsMap ] = useLoader(TextureLoader, [EarthDayMap, EarthNightMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap])
   return (
     <>
-      <ambientLight intensity={1.0}/>
+      {/* <ambientLight intensity={1.0}/> */}
+      <pointLight color="#FFF" position={[2,0, 2]} intensity={10}/>
+
       <Stars 
         radius={300} 
         depth={60} 
@@ -37,7 +39,7 @@ export default function Earth(props) {
       <mesh>
         <sphereGeometry args={[1, 32, 32]} />
         <meshPhongMaterial specularMap={specularMap}/>
-        <meshStandardMaterial map={colorMap} normalMap={normalMap} />
+        <meshStandardMaterial map={colorMap} normalMap={normalMap} metalness={0.4} roughness={0.7}/>
         <OrbitControls 
           enableZoom={true} 
           enablePan={true} 
