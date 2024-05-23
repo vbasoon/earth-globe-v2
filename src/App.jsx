@@ -2,6 +2,7 @@ import {Suspense} from "react"
 import { Canvas } from "@react-three/fiber";
 import styled from "styled-components";
 import Earth from "./components/earth"
+import TopSection from "./components/topSection";
 import './App.css'
 
 const CanvasContainer = styled.div`
@@ -12,6 +13,7 @@ const CanvasContainer = styled.div`
 function App() {
   return (
     <CanvasContainer>
+      <TopSection/>
       <Canvas>
         <Suspense fallback={null}>
           <Earth/>
